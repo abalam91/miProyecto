@@ -15,10 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/articles/{nombre}', function($nombre){
-	echo 'El nombre que has colocado es: ' . $nombre;
+Route::group(['prefix' => 'admin'], function(){
+	Route::resource('user', 'UsersController');
 });
-
-Route::get('/view/{id}', [
-	"uses"	=>	"TestController@view"
-]);
